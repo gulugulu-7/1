@@ -1,38 +1,238 @@
-# ---- 操作系统 ----
+# ============================================================
+#  .gitignore  —  C:\Users\咕噜咕噜\Desktop\git
+#  生成于 2026/10/12
+#
+#  ⚠️ 重要：被忽略的文件不会出现在 git status 里，
+#     `git add .` 也会静默跳过它们。改动本文件后请用
+#     `git status --ignored` 或 `git check-ignore -v <文件>`
+#     确认某个文件到底是被忽略了还是真的没改。
+# ============================================================
+
+
+# ------------------------------------------------------------
+# 1. 系统与 Office 临时文件
+# ------------------------------------------------------------
+
+# Windows 系统垃圾
 Thumbs.db
 ehthumbs.db
 Desktop.ini
+desktop.ini
 $RECYCLE.BIN/
 *.lnk
+*.url
 
-# ---- 编辑器 / IDE ----
+# macOS
+.DS_Store
+._*
+
+# Office / WPS 锁文件与自动恢复文件
+#   ~$xxx.docx  是 Word 打开文档时生成的锁文件，关掉 Word 后不一定自动删除
+~$*
+*.asd
+*.wbk
+*.xlk
+
+# 半成品下载与临时文件
+*.tmp
+*.temp
+*.bak
+*.old
+*.orig
+*.rej
+*.part
+*.partial
+*.crdownload
+*.download
+
+# 日志
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+
+# ------------------------------------------------------------
+# 2. 依赖与构建产物
+# ------------------------------------------------------------
+
+# JavaScript / TypeScript
+node_modules/
+dist/
+build/
+out/
+.next/
+.nuxt/
+.cache/
+.parcel-cache/
+*.tsbuildinfo
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+venv/
+env/
+.eggs/
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.ipynb_checkpoints/
+
+# Java / Kotlin / Gradle / Maven
+target/
+.gradle/
+.mvn/
+*.class
+*.jar
+
+# C / C++ / C# / .NET
+*.o
+*.obj
+*.pdb
+*.ilk
+*.exe
+*.dll
+*.lib
+*.exp
+bin/
+obj/
+Debug/
+Release/
+*.user
+*.suo
+.vs/
+
+# 编辑器 / IDE 工程文件
 .vscode/
 .idea/
 *.swp
 *.swo
 *~
 
-# ---- 依赖与构建产物 ----
-node_modules/
-dist/
-build/
-out/
-target/
-__pycache__/
-*.py[cod]
-.venv/
-venv/
 
-# ---- 日志与临时文件 ----
-*.log
-npm-debug.log*
-yarn-error.log*
-*.tmp
-*.bak
+# ------------------------------------------------------------
+# 3. 大体积二进制文件
+#    ⚠️ 这些是"宽匹配"，会连你真正想提交的同类文件一起忽略掉。
+#       如果某个 mp4/zip/psd 确实需要进仓库，用 `git add -f <文件>`
+#       强制加入，或者把对应那一行注释掉。
+# ------------------------------------------------------------
 
-# ---- 密钥与本地配置（切勿提交）----
+# 视频 / 音频
+*.mp4
+*.mov
+*.avi
+*.mkv
+*.webm
+*.flv
+*.wmv
+*.m4v
+*.mp3
+*.wav
+*.flac
+*.aac
+
+# 压缩包 / 镜像
+*.zip
+*.7z
+*.rar
+*.tar
+*.tar.gz
+*.tgz
+*.iso
+*.img
+*.vhd
+*.vmdk
+
+# 安装包
+*.msi
+*.apk
+*.dmg
+*.deb
+*.rpm
+
+# 设计 / 素材源文件
+*.psd
+*.ai
+*.sketch
+*.blend
+*.fbx
+
+# 数据集 / 模型权重
+*.csv
+*.parquet
+*.pkl
+*.pickle
+*.h5
+*.pt
+*.pth
+*.onnx
+*.safetensors
+*.ckpt
+
+# --- 可选：把文档也排除掉 ---
+# 作业目录里的 docx/pdf/pptx/xlsx 通常正是要提交的成果，
+# 所以下面默认注释掉。确实不想提交文档时，取消注释即可。
+# *.docx
+# *.doc
+# *.pdf
+# *.pptx
+# *.ppt
+# *.xlsx
+# *.xls
+
+
+# ------------------------------------------------------------
+# 4. 个人隐私与敏感信息
+#    ⚠️ 忽略规则是"防手滑"，不是加密。
+#       真正敏感的东西最好的做法是根本不要放进这个目录。
+# ------------------------------------------------------------
+
+# 环境变量与密钥
 .env
-.env.local
-*.pem
+.env.*
+!.env.example
 *.key
+*.pem
+*.p12
+*.pfx
+*.keystore
+*.jks
 secrets.json
+credentials.json
+credentials.*
+id_rsa*
+id_ed25519*
+.aws/
+.ssh/
+
+# 证件、账号相关（中文文件名匹配）
+*身份证*
+*准考证*
+*户口*
+*学位证*
+*毕业证*
+*成绩单*
+*密码*
+*账号*
+*银行卡*
+*护照*
+*签证*
+
+# 英文命名的同类文件
+*password*
+*passwd*
+*secret*
+*credential*
+*token*
+*id_card*
+*idcard*
+*passport*
+*bank_card*
+*bankcard*
+
+# ⬇️ 在这里追加你自己的隐私文件规则（每个文件/模式一行）
+# 例如：个人简历-真实版.docx
